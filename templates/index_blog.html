@@ -1,0 +1,27 @@
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <title>Welcome my Blog</title>#}
+{#</head>#}
+{#<body>#}
+{#    <h1>Welcome my Blog</h1>#}
+{#    <hr>#}
+{#        {% for post in posts %}#}
+{#            <p>#}
+{#                <a href='/post/{{ post.slug }}'>{{ post.title }}</a>#}
+{#            </p>#}
+{#         {% endfor %}#}
+{#    <hr>#}
+{#    <h3> Now is {{ now }}</h3>#}
+{##}
+{#</body>#}
+{#</html>#}
+<!-- index.html -->
+{% extends 'base_blog.html' %}
+{% block title %} Welcome to my Blog {% endblock %}
+{% block headmessage %}
+    {% for post in posts %}
+        <p><a href='/blog/post/{{ post.slug }}'>{{ post.title }}</a></p>
+    {% endfor %}
+{% endblock %}

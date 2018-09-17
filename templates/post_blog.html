@@ -1,0 +1,28 @@
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <title>Welcome my Blog</title>#}
+{#</head>#}
+{#<body>#}
+{#    <h1>{{ post.title }}</h1>#}
+{#    <br>#}
+{#    {{ post.body }}#}
+{##}
+{#    <br>#}
+{#    <h3><a href = '/'>Return mainpage</a></h3>#}
+{##}
+{#</body>#}
+{#</html>#}
+
+<!-- post_blog.html -->
+{% extends 'base_blog.html' %}
+{% block title %} {{ post.title }} - Wen Xue Tian Di {% endblock %}
+{% block headmessage %}
+    <h3>{{ post.title }}</h3>
+
+{% endblock %}
+{% block content %}
+    <p>{{ post.body | safe}}</p>
+    <p><a href='/blog'>Back to mainpage</a></p>
+{% endblock %}
