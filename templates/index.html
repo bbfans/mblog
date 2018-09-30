@@ -1,8 +1,5 @@
 
 {% extends "base.html" %}
-{% block title %}
-    DJ Cell Phone Store
-{% endblock %}
 {% block content %}
     <div class="container" align=center>
     <!--Here -->
@@ -17,10 +14,10 @@
             </tr>
     {% endif %}
         <tr bgcolor="{% cycle "#ffccff" "ccffcc" %}">
-            <td><a href='{% url "detail-url" p.id %}' >{{ p.nickname }}</a></td>
+            <td><a href='{% url 'detail-url' p.id %}' >{{ p.nickname }}</a></td>
             <td>{{ p.pmodel.maker.name }}/{{ p.pmodel }}</td>
             <td>{{ p.year }}</td>
-            <td align="right">{{ p.price }}</td>
+            <td align="right">${{ p.price }}</td>
         </tr>
 
 

@@ -20,12 +20,19 @@ from mainsite.views import showpost_blog
 from mainsite.views import about_blog
 from mainsite.views import cell_index
 from mainsite.views import phone_details
+from django.conf import settings
 
-urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^blog/$', homepage_blog),
-    url(r'^blog/post/(\w+)$', showpost_blog),
-    url(r'^blog/about/', about_blog),
-    url(r'', cell_index),
-    url(r'^detail/(\d+)$', phone_details, name='detail-url'),
-]
+if settings.DEBUG:
+    import debug_toolbar
+
+    urlpatterns = [
+        url(r'^admin/', admin.site.urls),
+        url(r'^__debug__/', include(debug_toolbar.urls)),
+        url(r'^detail/(\d+)$', phone_details, name='detail-url'),
+        url(r'^blog/$', homepage_blog),
+        url(r'^blog/post/(\w+)$', showpost_blog),
+        url(r'^blog/about/', about_blog),
+        url(r'', cell_index),
+
+    ]
+

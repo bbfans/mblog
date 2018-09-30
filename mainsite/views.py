@@ -9,7 +9,9 @@ from .models import Post
 from datetime import datetime
 from django.template.loader import get_template
 from mainsite import models
+import pdb
 
+import logging
 
 # Create your views here.
 
@@ -50,6 +52,7 @@ def about_blog(request):
 
 
 def cell_index(request):
+    # pdb.set_trace()
     products = models.Product.objects.all()
     template = get_template('index.html')
     html = template.render(locals())
@@ -57,11 +60,13 @@ def cell_index(request):
 
 
 def phone_details(request, id):
-    try:
-        product = models.Product.objects.get(id=id)
-        images = models.PPhoto.objects.filter(product=product)
-    except:
-        pass
+    #
+    # try:
+
+    product = models.Product.objects.get(id=id)
+    images = models.PPhoto.objects.filter(product=product)
+    # except:
+    #     pass
     template = get_template('detail.html')
-    html= template.render(locals())
+    html = template.render(locals())
     return HttpResponse(html)
